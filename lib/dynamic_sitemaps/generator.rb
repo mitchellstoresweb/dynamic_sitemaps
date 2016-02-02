@@ -10,7 +10,7 @@ module DynamicSitemaps
         instance_eval open(DynamicSitemaps.config_path).read, DynamicSitemaps.config_path
       end
       generate_index
-      move_to_destination
+      #move_to_destination
       ping_search_engines
     ensure
       remove_temp_dir
@@ -113,7 +113,7 @@ module DynamicSitemaps
     def folder(*args)
       if args.any?
         @folder = args.first
-        raise ArgumentError, "Folder can't be blank." if @folder.blank?
+        #raise ArgumentError, "Folder can't be blank." if @folder.blank?
       else
         # Ensure that the default folder is set and cleaned.
         folder DynamicSitemaps.folder if @folder.blank?

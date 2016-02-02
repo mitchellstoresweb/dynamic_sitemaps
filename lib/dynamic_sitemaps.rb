@@ -55,7 +55,7 @@ module DynamicSitemaps
     end
 
     def folder=(new_folder)
-      raise ArgumentError, "DynamicSitemaps.folder can't be blank." if new_folder.blank?
+      #raise ArgumentError, "DynamicSitemaps.folder can't be blank." if new_folder.blank?
       @folder = new_folder
     end
 
