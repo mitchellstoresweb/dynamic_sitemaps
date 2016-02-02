@@ -46,6 +46,15 @@ module DynamicSitemaps
       if priority = options[:priority]
         write '<priority>' + priority.to_s + '</priority>'
       end
+      if images = options[:images]
+        images.each do |image|
+          write '<image:image>'
+          write '<image:loc>' + image[:loc] + '</image:loc>'
+          write '<image:caption>' + image[:caption] + '</image:caption>'
+          write '<image:title>' + image[:title] + '</image:title>'
+          write '</image:image>'
+        end
+      end
       write '</url>'
     end
 
