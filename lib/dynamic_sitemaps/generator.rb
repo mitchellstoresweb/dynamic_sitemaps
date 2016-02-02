@@ -13,7 +13,7 @@ module DynamicSitemaps
       #move_to_destination
       ping_search_engines
     ensure
-      remove_temp_dir
+      #remove_temp_dir
     end
 
     def generate_index
