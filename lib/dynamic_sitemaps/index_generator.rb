@@ -34,7 +34,7 @@ module DynamicSitemaps
       sitemaps.each do |sitemap|
         sitemap.files.each do |file_name|
           file.puts '<sitemap>',
-                    "<loc>#{sitemap.protocol}://#{sitemap.host}/#{sitemap.folder}/#{file_name}</loc>",
+                    "<loc>#{sitemap_path(sitemap, file_name)}</loc>",
                     '</sitemap>'
         end
       end
@@ -42,6 +42,12 @@ module DynamicSitemaps
 
     def write_end(file)
       file.puts '</sitemapindex>'
+    end
+
+    private
+
+    def sitemap_path(sitemap, file_name)
+      sitemap.folder.present? ? "#{sitemap.protocol}://#{sitemap.host}/#{sitemap.folder}/#{file_name}" : "#{sitemap.protocol}://#{sitemap.host}/#{file_name}"
     end
   end
 end
