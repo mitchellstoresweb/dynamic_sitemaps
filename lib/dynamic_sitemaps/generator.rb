@@ -113,7 +113,7 @@ module DynamicSitemaps
     def folder(*args)
       if args.any?
         @folder = args.first
-        #raise ArgumentError, "Folder can't be blank." if @folder.blank?
+        raise ArgumentError, "Folder can't be blank." if @folder.blank?
       else
         # Ensure that the default folder is set and cleaned.
         folder DynamicSitemaps.folder if @folder.blank?
