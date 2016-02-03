@@ -48,10 +48,11 @@ module DynamicSitemaps
       end
       if images = options[:images]
         images.each do |image|
+          next if image[:loc].blank?
           write '<image:image>'
           write '<image:loc>' + image[:loc] + '</image:loc>'
-          write '<image:caption>' + image[:caption] + '</image:caption>'
-          write '<image:title>' + image[:title] + '</image:title>'
+          write '<image:caption>' + image[:caption] + '</image:caption>' unless image[:caption].blank?
+          write '<image:title>' + image[:title] + '</image:title>' unless image[:title].blank?
           write '</image:image>'
         end
       end
