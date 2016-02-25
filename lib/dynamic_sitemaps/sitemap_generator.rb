@@ -99,7 +99,7 @@ module DynamicSitemaps
     end
 
     def file_name
-      sitemap.name.to_s + "#{Time.now.to_i}" + ".xml"
+      sitemap.name.to_s + (page > 1 ? page.to_s : "") + ".xml"
     end
 
     def folder
