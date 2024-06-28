@@ -90,7 +90,6 @@ module DynamicSitemaps
     def host(*args)
       if args.any?
         @host = args.first
-        Rails.application.routes.default_url_options[:host] = @host
       else
         @host
       end
@@ -99,7 +98,6 @@ module DynamicSitemaps
     def protocol(*args)
       if args.any?
         @protocol = args.first
-        Rails.application.routes.default_url_options[:protocol] = @protocol
       else
         @protocol
       end
